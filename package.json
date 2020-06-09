@@ -1,0 +1,19 @@
+{
+  "name": "next-hacker-news",
+  "version": "1.0.0",
+  "description": "A hacker news clone using Next.js",
+  "main": "server.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "keywords": [
+    "next.js"
+  ],
+  "author": "Shihab US",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
