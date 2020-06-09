@@ -16,7 +16,7 @@ export default function Layout({ children, title, description }) {
             </a>
           </Link>
         </nav>
-        {children}
+        <div className="children">{children}</div>
       </div>
 
       <style jsx>{`
@@ -38,6 +38,9 @@ export default function Layout({ children, title, description }) {
         }
         nav .main-title {
           font-weight: bold;
+        }
+        .children {
+          padding: 0.5em 1em;
         }
       `}</style>
       <style global jsx>{`
