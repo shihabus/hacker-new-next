@@ -1,5 +1,6 @@
 import Error from "next/error";
 import Layout from "../components/Layout";
+import CommentList from "../components/CommentList";
 
 export default class story extends React.Component {
   static async getInitialProps(ctx) {
@@ -23,7 +24,7 @@ export default class story extends React.Component {
       return <Error statusCode={503} />;
     }
     return (
-      <Layout title={story.title}>
+      <Layout title={story.title} backButton>
         <main>
           <h1 className="story-title">
             <a href={story.url}>{story.title}</a>
@@ -33,6 +34,11 @@ export default class story extends React.Component {
             <strong>{story.comment_count}</strong>
             <strong>{story.time_ago}</strong>
           </div>
+          {story.comments.length > 0 ? (
+            <CommentList comments={story.comments} />
+          ) : (
+            <div>No comments for this story</div>
+          )}
         </main>
         <style jsx>{`
           main {

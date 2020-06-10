@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Head from "next/head";
+import Router from "next/router";
 
-export default function Layout({ children, title, description }) {
+export default function Layout({ children, title, description, backButton }) {
   return (
     <div>
       <Head>
@@ -10,6 +11,11 @@ export default function Layout({ children, title, description }) {
       </Head>
       <div className="container">
         <nav>
+          {backButton && (
+            <span onClick={() => Router.back()} className="back-button">
+              &#x2b05;
+            </span>
+          )}
           <Link href="/">
             <a>
               <span class="main-title">Hacker Next</span>
@@ -38,6 +44,11 @@ export default function Layout({ children, title, description }) {
         }
         nav .main-title {
           font-weight: bold;
+        }
+        nav .back-button {
+          font-size: 0.9rem;
+          padding-right: 1em;
+          cursor: pointer;
         }
         .children {
           padding: 0.5em 1em;
