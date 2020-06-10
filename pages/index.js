@@ -8,6 +8,7 @@ class Index extends React.Component {
     const { req, res, query } = ctx;
     let stories = [];
     const page = Number(query.page) || 1;
+    console.log("call");
     try {
       const resp = await fetch(
         `https://node-hnapi.herokuapp.com/news?page=${page}`
@@ -18,10 +19,12 @@ class Index extends React.Component {
     }
     return { stories, page };
   }
+  componentDidMount = () => {
+    console.log("cdm");
+  };
 
   render() {
     const { stories, page } = this.props;
-    console.log("page", this.props);
     if (!stories.length) {
       return <Error statusCode={503} />;
     }
