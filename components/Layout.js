@@ -18,7 +18,7 @@ export default function Layout({ children, title, description, backButton }) {
           )}
           <Link href="/">
             <a>
-              <span class="main-title">Hacker Next</span>
+              <span className="main-title">Hacker Next</span>
             </a>
           </Link>
         </nav>
