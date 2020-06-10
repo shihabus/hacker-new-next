@@ -4,7 +4,10 @@
   "description": "A hacker news clone using Next.js",
   "main": "server.js",
   "scripts": {
-    "dev": "next"
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "next build",
+    "deploy": "now --public"
   },
   "keywords": [
     "next.js"
@@ -14,6 +17,7 @@
   "dependencies": {
     "next": "^9.4.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "sw-precache-webpack-plugin": "^1.0.0"
   }
 }

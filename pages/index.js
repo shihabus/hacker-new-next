@@ -8,7 +8,6 @@ class Index extends React.Component {
     const { req, res, query } = ctx;
     let stories = [];
     const page = Number(query.page) || 1;
-    console.log("call");
     try {
       const resp = await fetch(
         `https://node-hnapi.herokuapp.com/news?page=${page}`
@@ -20,7 +19,15 @@ class Index extends React.Component {
     return { stories, page };
   }
   componentDidMount = () => {
-    console.log("cdm");
+    // register sw
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then((registration) =>
+          console.log("SW registration was successful", registration)
+        )
+        .catch((err) => console.log("Failed to register SW", err));
+    }
   };
 
   render() {
